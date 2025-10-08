@@ -7,7 +7,10 @@
     <style>
       body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 16px; }
       .container { max-width: 1200px; margin: 0 auto; }
-      pre.mermaid { white-space: pre-wrap; }
+      .diagrams { display: flex; flex-direction: column; gap: 24px; }
+      .diagram-card { border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+      .diagram-card h2 { margin: 0 0 8px; font-size: 16px; }
+      pre.mermaid { white-space: pre-wrap; margin: 0; }
     </style>
     <!-- Mermaid.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
@@ -18,8 +21,11 @@
   <body>
     <div class="container">
       <h1>L1 Flowcharts</h1>
-      <p>This page renders the Mermaid diagram from <code>L1-flowcharts_diagram.mermaid</code>.</p>
-      <pre class="mermaid">
+      <p>Nine flowcharts rendered with Mermaid. They are now shown stacked in a single column for easier viewing.</p>
+      <div class="diagrams">
+        <div class="diagram-card">
+          <h2>1. Multiply Two Numbers</h2>
+          <pre class="mermaid">
 graph TD
     subgraph "1. Multiply Two Numbers"
     A1[Start] --> B1[Input num1, num2]
@@ -27,21 +33,39 @@ graph TD
     C1 --> D1[Output result]
     D1 --> E1[End]
     end
-    
+          </pre>
+        </div>
+
+        <div class="diagram-card">
+          <h2>2. Perimeter of Triangle</h2>
+          <pre class="mermaid">
+graph TD
     subgraph "2. Perimeter of Triangle"
     A2[Start] --> B2[Input side1, side2, side3]
     B2 --> C2[perimeter = side1 + side2 + side3]
     C2 --> D2[Output perimeter]
     D2 --> E2[End]
     end
-    
+          </pre>
+        </div>
+
+        <div class="diagram-card">
+          <h2>3. Simple Interest</h2>
+          <pre class="mermaid">
+graph TD
     subgraph "3. Simple Interest"
     A3[Start] --> B3[Input principal, rate, time]
     B3 --> C3[SI = P * R * T / 100]
     C3 --> D3[Output SI]
     D3 --> E3[End]
     end
-    
+          </pre>
+        </div>
+
+        <div class="diagram-card">
+          <h2>4. Compound Interest</h2>
+          <pre class="mermaid">
+graph TD
     subgraph "4. Compound Interest"
     A4[Start] --> B4[Input principal, rate, time, n]
     B4 --> C4["Amount = P * (1 + R/(n*100))^(n*t)"]
@@ -49,7 +73,13 @@ graph TD
     D4 --> E4[Output CI, Amount]
     E4 --> F4[End]
     end
-    
+          </pre>
+        </div>
+
+        <div class="diagram-card">
+          <h2>5. Counting N to 1</h2>
+          <pre class="mermaid">
+graph TD
     subgraph "5. Counting N to 1"
     A5[Start] --> B5[Input N]
     B5 --> C5[i = N]
@@ -59,7 +89,13 @@ graph TD
     F5 --> D5
     D5 -->|No| G5[End]
     end
-    
+          </pre>
+        </div>
+
+        <div class="diagram-card">
+          <h2>6. Factorial</h2>
+          <pre class="mermaid">
+graph TD
     subgraph "6. Factorial"
     A6[Start] --> B6[Input n]
     B6 --> C6[fact = 1, i = 1]
@@ -70,7 +106,13 @@ graph TD
     D6 -->|No| G6[Output fact]
     G6 --> H6[End]
     end
-    
+          </pre>
+        </div>
+
+        <div class="diagram-card">
+          <h2>7. Check Prime</h2>
+          <pre class="mermaid">
+graph TD
     subgraph "7. Check Prime"
     A7[Start] --> B7[Input n]
     B7 --> C7{n <= 1?}
@@ -89,7 +131,13 @@ graph TD
     J7 -->|No| D7
     L7 --> M7
     end
-    
+          </pre>
+        </div>
+
+        <div class="diagram-card">
+          <h2>8. Valid Triangle</h2>
+          <pre class="mermaid">
+graph TD
     subgraph "8. Valid Triangle"
     A8[Start] --> B8[Input side1, side2, side3]
     B8 --> C8{s1+s2>s3 AND s2+s3>s1 AND s1+s3>s2?}
@@ -98,7 +146,13 @@ graph TD
     D8 --> F8[End]
     E8 --> F8
     end
-    
+          </pre>
+        </div>
+
+        <div class="diagram-card">
+          <h2>9. Max of Two Numbers</h2>
+          <pre class="mermaid">
+graph TD
     subgraph "9. Max of Two Numbers"
     A9[Start] --> B9[Input num1, num2]
     B9 --> C9{num1 > num2?}
@@ -111,7 +165,9 @@ graph TD
     G9 --> H9
     H9 --> I9[End]
     end
-      </pre>
+          </pre>
+        </div>
+      </div>
     </div>
   </body>
 </html>
