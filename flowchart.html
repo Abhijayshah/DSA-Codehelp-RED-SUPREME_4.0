@@ -6,8 +6,10 @@
     <title>L1 Flowcharts (Mermaid)</title>
     <style>
       body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 16px; }
-      .container { max-width: 1200px; margin: 0 auto; }
-      .diagrams { display: flex; flex-direction: column; gap: 24px; }
+      .container { max-width: 1400px; margin: 0 auto; }
+      .toolbar { display: flex; align-items: center; gap: 12px; margin: 12px 0 20px; }
+      .toolbar label { font-weight: 600; }
+      .diagrams { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 24px; }
       .diagram-card { border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
       .diagram-card h2 { margin: 0 0 8px; font-size: 16px; }
       pre.mermaid { white-space: pre-wrap; margin: 0; }
@@ -21,12 +23,19 @@
   <body>
     <div class="container">
       <h1>L1 Flowcharts</h1>
-      <p>Nine flowcharts rendered with Mermaid. They are now shown stacked in a single column for easier viewing.</p>
+      <p>Nine flowcharts rendered with Mermaid. Use the control below to change the diagram direction. The grid layout shows multiple cards per row (responsive).</p>
+      <div class="toolbar">
+        <label for="direction">Direction:</label>
+        <select id="direction">
+          <option value="LR" selected>Left-to-Right (LR)</option>
+          <option value="TD">Top-Down (TD)</option>
+        </select>
+      </div>
       <div class="diagrams">
         <div class="diagram-card">
           <h2>1. Multiply Two Numbers</h2>
           <pre class="mermaid">
-graph TD
+graph LR
     subgraph "1. Multiply Two Numbers"
     A1[Start] --> B1[Input num1, num2]
     B1 --> C1[result = num1 * num2]
@@ -39,7 +48,7 @@ graph TD
         <div class="diagram-card">
           <h2>2. Perimeter of Triangle</h2>
           <pre class="mermaid">
-graph TD
+graph LR
     subgraph "2. Perimeter of Triangle"
     A2[Start] --> B2[Input side1, side2, side3]
     B2 --> C2[perimeter = side1 + side2 + side3]
@@ -52,7 +61,7 @@ graph TD
         <div class="diagram-card">
           <h2>3. Simple Interest</h2>
           <pre class="mermaid">
-graph TD
+graph LR
     subgraph "3. Simple Interest"
     A3[Start] --> B3[Input principal, rate, time]
     B3 --> C3[SI = P * R * T / 100]
@@ -65,7 +74,7 @@ graph TD
         <div class="diagram-card">
           <h2>4. Compound Interest</h2>
           <pre class="mermaid">
-graph TD
+graph LR
     subgraph "4. Compound Interest"
     A4[Start] --> B4[Input principal, rate, time, n]
     B4 --> C4["Amount = P * (1 + R/(n*100))^(n*t)"]
@@ -79,7 +88,7 @@ graph TD
         <div class="diagram-card">
           <h2>5. Counting N to 1</h2>
           <pre class="mermaid">
-graph TD
+graph LR
     subgraph "5. Counting N to 1"
     A5[Start] --> B5[Input N]
     B5 --> C5[i = N]
@@ -95,7 +104,7 @@ graph TD
         <div class="diagram-card">
           <h2>6. Factorial</h2>
           <pre class="mermaid">
-graph TD
+graph LR
     subgraph "6. Factorial"
     A6[Start] --> B6[Input n]
     B6 --> C6[fact = 1, i = 1]
@@ -112,7 +121,7 @@ graph TD
         <div class="diagram-card">
           <h2>7. Check Prime</h2>
           <pre class="mermaid">
-graph TD
+graph LR
     subgraph "7. Check Prime"
     A7[Start] --> B7[Input n]
     B7 --> C7{n <= 1?}
@@ -137,7 +146,7 @@ graph TD
         <div class="diagram-card">
           <h2>8. Valid Triangle</h2>
           <pre class="mermaid">
-graph TD
+graph LR
     subgraph "8. Valid Triangle"
     A8[Start] --> B8[Input side1, side2, side3]
     B8 --> C8{s1+s2>s3 AND s2+s3>s1 AND s1+s3>s2?}
@@ -152,7 +161,7 @@ graph TD
         <div class="diagram-card">
           <h2>9. Max of Two Numbers</h2>
           <pre class="mermaid">
-graph TD
+graph LR
     subgraph "9. Max of Two Numbers"
     A9[Start] --> B9[Input num1, num2]
     B9 --> C9{num1 > num2?}
@@ -169,5 +178,25 @@ graph TD
         </div>
       </div>
     </div>
+    <script>
+      // Global direction toggle for all Mermaid blocks
+      document.addEventListener('DOMContentLoaded', () => {
+        const blocks = document.querySelectorAll('pre.mermaid');
+        // Preserve original source for each block
+        blocks.forEach(b => { b.dataset.source = b.textContent; });
+        const select = document.getElementById('direction');
+        const updateDirection = (dir) => {
+          blocks.forEach(b => {
+            const src = b.dataset.source || b.textContent;
+            const newSrc = src.replace(/^graph\s+(TD|LR)/m, `graph ${dir}`);
+            b.textContent = newSrc;
+          });
+          mermaid.init(undefined, blocks);
+        };
+        // Initialize with selected value
+        updateDirection(select.value);
+        select.addEventListener('change', () => updateDirection(select.value));
+      });
+    </script>
   </body>
 </html>

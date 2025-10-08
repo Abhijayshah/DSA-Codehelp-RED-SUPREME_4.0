@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Abhijay's DSA Notes</title>
+    <meta name="description" content="Master Data Structures & Algorithms - Free resources by Abhijay Shah with explanations, flowcharts, and code examples." />
+    <meta property="og:title" content="Abhijay's DSA Notes" />
+    <meta property="og:description" content="Free DSA learning platform: explanations, flowcharts, code examples, and videos." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://Abhijayshah.github.io/DSA-Codehelp-RED-SUPREME_4.0/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #f7f9fc;
+        --text: #2C3E50;
+        --muted: #6b7280;
+        --primary: #2C3E50;
+        --accent: #3498DB;
+        --success: #27AE60;
+        --card: #ffffff;
+        --border: #e5e7eb;
+      }
+      [data-theme="dark"] {
+        --bg: #0f172a;
+        --text: #e5e7eb;
+        --muted: #94a3b8;
+        --primary: #e5e7eb;
+        --accent: #60a5fa;
+        --success: #34d399;
+        --card: #111827;
+        --border: #334155;
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); }
+      a { color: var(--accent); text-decoration: none; }
+      header { position: sticky; top: 0; z-index: 50; background: var(--card); border-bottom: 1px solid var(--border); }
+      .nav { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 12px 16px; }
+      .brand { display: flex; align-items: center; gap: 10px; font-family: Poppins, Inter; font-weight: 700; }
+      .brand .logo { min-width: 32px; height: 32px; padding: 0 8px; border-radius: 6px; background: var(--accent); display: inline-flex; align-items: center; justify-content: center; color: white; font-size: 14px; font-weight: 700; white-space: nowrap; letter-spacing: 0.2px; }
+      .links { display: flex; gap: 16px; align-items: center; }
+      .links a { color: var(--text); font-weight: 600; }
+      .search { position: relative; }
+      .search input { padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); }
+      .controls { display: flex; gap: 8px; align-items: center; }
+      .btn { padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--card); color: var(--text); cursor: pointer; }
+      .btn.primary { background: var(--accent); color: white; border-color: transparent; }
+      .layout { display: grid; grid-template-columns: 280px 1fr; gap: 24px; max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+      aside { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+      main { min-height: 60vh; }
+      .hero { background: linear-gradient(135deg, rgba(52,152,219,0.15), rgba(39,174,96,0.15)); border: 1px solid var(--border); border-radius: 16px; padding: 24px; margin: 24px 16px; max-width: 1200px; }
+      .hero h1 { font-family: Poppins, Inter; margin: 0 0 8px; }
+      .muted { color: var(--muted); }
+      .stats { display: flex; gap: 16px; color: var(--muted); margin: 10px 0 16px; }
+      .toc h3 { margin-top: 0; }
+      .toc .section { margin-bottom: 10px; }
+      .toc details { border: 1px solid var(--border); border-radius: 8px; padding: 8px; }
+      .toc summary { cursor: pointer; font-weight: 600; }
+      .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 20px; }
+      .card .header { display: flex; align-items: center; gap: 12px; }
+      .badge { background: var(--success); color: white; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 600; }
+      .favorite { margin-left: auto; cursor: pointer; font-size: 20px; color: var(--muted); }
+      .favorite.active { color: #ef4444; }
+      .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      pre[class*="language-"] { border: 1px solid var(--border); border-radius: 8px; }
+      .copy-btn { margin-top: 8px; }
+      iframe { width: 100%; min-height: 280px; border: none; border-radius: 8px; }
+      footer { margin-top: 40px; border-top: 1px solid var(--border); background: var(--card); }
+      .footer-inner { max-width: 1200px; margin: 0 auto; padding: 16px; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
+      .progress { height: 8px; background: var(--border); border-radius: 999px; overflow: hidden; }
+      .progress > div { height: 100%; background: var(--accent); width: 0%; transition: width .3s ease; }
+      .license { color: var(--muted); }
+      /* PDF preview grid */
+      .pdf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      .pdf-card { display: flex; flex-direction: column; gap: 8px; }
+      .pdf-card h4 { margin: 0 0 4px; }
+      .pdf-view { width: 100%; height: 420px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); }
+      .pdf-actions { display: flex; gap: 8px; }
+      .pdf-actions .btn { flex: 1; text-align: center; }
+      @media (max-width: 992px) { .layout { grid-template-columns: 1fr; } aside { order: 2; } .grid-2{ grid-template-columns: 1fr; } }
+      @media print { header, .hero, .controls, .favorite, .toolbar { display: none !important; } .layout { grid-template-columns: 1fr; } body { background: white; color: black; } }
+    </style>
+    <!-- Prism.js for code syntax highlighting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-clike.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-c.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-cpp.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+    <!-- Mermaid.js for flowcharts -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script> mermaid.initialize({ startOnLoad: true, theme: 'default' }); </script>
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <div class="brand"><div class="logo">DSA-Guide</div> Abhijay's DSA Notes</div>
+        <div class="links">
+          <a href="#home">Home</a>
+          <a href="#topics">Topics</a>
+          <a href="#about">About</a>
+          <a href="#youtube">YouTube</a>
+          <a href="#license">License</a>
+        </div>
+        <div class="controls">
+          <div class="search"><input id="search" type="text" placeholder="Search topics..." aria-label="Search topics" /></div>
+          <button id="themeToggle" class="btn" title="Toggle theme">Toggle Theme</button>
+          <a class="btn" href="https://github.com/Abhijayshah/DSA-Codehelp-RED-SUPREME_4.0" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </nav>
+    </header>
+
+    <section id="home" class="hero">
+      <h1>Master Data Structures & Algorithms - Free Resources for Everyone</h1>
+      <p class="muted">Learn with clear explanations, visual flowcharts, and code examples in C++, Java, and Python.</p>
+      <div class="stats">
+        <div>Topics: <strong id="topicsCount">1</strong></div>
+        <div>Videos: <strong>Playlist</strong></div>
+      </div>
+      <div class="controls">
+        <a href="#topics" class="btn primary">Start Learning</a>
+        <a href="https://github.com/Abhijayshah/DSA-Codehelp-RED-SUPREME_4.0" class="btn" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+    </section>
+
+    <div class="layout">
+      <aside class="toc">
+        <h3>Table of Contents</h3>
+        <div class="section">
+          <details open>
+            <summary>s1. Basics of Programming - Language + Maths</summary>
+            <ul>
+              <li><a href="#s1-l1">L1-Basics of Programming</a></li>
+              <li><a href="#s1-l2">L2-Basics of Programming</a></li>
+              <li><a href="#s1-l3">L3-Basics of Programming</a></li>
+              <li><a href="#s1-l4-dc">L4 DC-Basics of Programming</a></li>
+              <li><a href="#s1-ms">MS-Basics of Programming</a></li>
+              <li><a href="#s1-pdfs">PDF Previews</a></li>
+            </ul>
+          </details>
+        </div>
+        <div class="section">
+          <details>
+            <summary>s2. Pattern Printing</summary>
+            <ul>
+              <li><a href="#s2-patterns">Pattern Printing - Overview</a></li>
+            </ul>
+          </details>
+        </div>
+        <div class="section">
+          <details>
+            <summary>s3. Arrays</summary>
+            <ul>
+              <li><a href="#topic-arrays-intro">Arrays - Introduction</a></li>
+            </ul>
+          </details>
+        </div>
+        <div class="section">
+          <details>
+            <summary>s4. Searching & Sorting</summary>
+            <ul>
+              <li><a href="#s4-search-sort">Searching & Sorting - Overview</a></li>
+            </ul>
+          </details>
+        </div>
+        <div class="section">
+          <details>
+            <summary>s5. Strings</summary>
+            <ul>
+              <li><a href="#s5-strings">Strings - Overview</a></li>
+            </ul>
+          </details>
+        </div>
+        <div class="section">
+          <details>
+            <summary>s6. Needed Maths & Pointers</summary>
+            <ul>
+              <li><a href="#s6-maths-pointers">Needed Maths & Pointers - Overview</a></li>
+            </ul>
+          </details>
+        </div>
+        <div class="progress" title="Progress">
+          <div id="progressBar"></div>
+        </div>
+      </aside>
+
+      <main id="topics">
+        <!-- Topic Card: Arrays - Introduction -->
+        <article id="topic-arrays-intro" class="card topic" data-title="Arrays - Introduction" data-difficulty="Beginner">
+          <div class="header">
+            <h2>Arrays - Introduction</h2>
+            <span class="badge">Beginner</span>
+            <div class="favorite" role="button" aria-label="Bookmark" title="Bookmark">❤</div>
+          </div>
+          <p>
+            An array is a contiguous block of memory that stores elements of the same type.
+            Arrays provide constant-time access by index (O(1)) and are efficient for iteration.
+          </p>
+
+          <div class="grid-2">
+            <div>
+              <h3>Flowchart</h3>
+              <pre class="mermaid">
+graph LR
+    A[Start] --> B[Declare array]
+    B --> C[Initialize elements]
+    C --> D[Iterate over array]
+    D --> E[Access / Process elements]
+    E --> F[End]
+              </pre>
+            </div>
+            <div>
+              <h3>Complexity</h3>
+              <ul>
+                <li>Access by index: Time O(1)</li>
+                <li>Search (linear): Time O(n)</li>
+                <li>Insert/Delete (middle): Time O(n)</li>
+                <li>Space: O(n)</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Code Examples</h3>
+          <div class="grid-2">
+            <div>
+              <pre class="language-cpp"><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+int main(){
+  int arr[5] = {1,2,3,4,5};
+  for(int i=0;i<5;i++) cout &lt;&lt; arr[i] &lt;&lt; " ";
+  return 0;
+}
+</code></pre>
+              <button class="btn copy-btn" data-target="cpp">Copy C++</button>
+            </div>
+            <div>
+              <pre class="language-python"><code class="language-python">arr = [1,2,3,4,5]
+for x in arr:
+    print(x, end=' ')
+</code></pre>
+              <button class="btn copy-btn" data-target="python">Copy Python</button>
+            </div>
+          </div>
+
+          <h3>YouTube Video</h3>
+          <iframe id="yt-arrays" src="https://www.youtube.com/embed?listType=playlist&list=PL_placeholder" allowfullscreen title="YouTube Playlist"></iframe>
+
+          <h3>Practice Problems</h3>
+          <ul>
+            <li>Find maximum element in an array (Hint: Track current max while iterating)</li>
+            <li>Reverse an array in-place (Hint: Two-pointer swap from ends)</li>
+          </ul>
+
+          <div class="controls">
+            <button class="btn primary" id="markComplete-arrays">Mark Complete</button>
+            <a class="btn" href="#topics" aria-label="Next Topic">Next Topic</a>
+            <a class="btn" href="https://github.com/Abhijayshah/DSA-Codehelp-RED-SUPREME_4.0" target="_blank" rel="noopener">Edit on GitHub</a>
+          </div>
+          <small class="muted">Last updated: <span id="updated-arrays"></span></small>
+        </article>
+        <!-- Placeholder Topic Cards for new sections -->
+        <article id="s1-l1" class="card topic" data-title="L1-Basics of Programming" data-difficulty="Beginner">
+          <div class="header">
+            <h2>L1-Basics of Programming</h2>
+            <span class="badge">Beginner</span>
+            <div class="favorite" role="button" aria-label="Bookmark" title="Bookmark">❤</div>
+          </div>
+          <p class="muted">Content coming soon.</p>
+        </article>
+        <article id="s1-l2" class="card topic" data-title="L2-Basics of Programming" data-difficulty="Beginner">
+          <div class="header">
+            <h2>L2-Basics of Programming</h2>
+            <span class="badge">Beginner</span>
+            <div class="favorite" role="button" aria-label="Bookmark" title="Bookmark">❤</div>
+          </div>
+          <p class="muted">Content coming soon.</p>
+        </article>
+        <article id="s1-l3" class="card topic" data-title="L3-Basics of Programming" data-difficulty="Beginner">
+          <div class="header">
+            <h2>L3-Basics of Programming</h2>
+            <span class="badge">Beginner</span>
+            <div class="favorite" role="button" aria-label="Bookmark" title="Bookmark">❤</div>
+          </div>
+          <p class="muted">Content coming soon.</p>
+        </article>
+        <article id="s1-l4-dc" class="card topic" data-title="L4 DC-Basics of Programming" data-difficulty="Beginner">
+          <div class="header">
+            <h2>L4 DC-Basics of Programming</h2>
+            <span class="badge">Beginner</span>
+            <div class="favorite" role="button" aria-label="Bookmark" title="Bookmark">❤</div>
+          </div>
+          <p class="muted">Content coming soon.</p>
+        </article>
+        <article id="s1-ms" class="card topic" data-title="MS-Basics of Programming" data-difficulty="Beginner">
+          <div class="header">
+            <h2>MS-Basics of Programming</h2>
+            <span class="badge">Beginner</span>
+            <div class="favorite" role="button" aria-label="Bookmark" title="Bookmark">❤</div>
+          </div>
+          <p class="muted">Content coming soon.</p>
+        </article>
+
+        <!-- Basics of Programming - PDFs Preview -->
+        <article id="s1-pdfs" class="card topic" data-title="Basics of Programming - PDFs" data-difficulty="Beginner">
+          <div class="header">
+            <h2>Basics of Programming - PDFs Preview</h2>
+            <span class="badge">Beginner</span>
+            <div class="favorite" role="button" aria-label="Bookmark" title="Bookmark">❤</div>
+          </div>
+          <p class="muted">
+            Embedded previews of lecture PDFs. These will load when the PDFs are present in your repository (and on GitHub Pages). If your browser blocks inline PDF viewing, use the Open or Download buttons.
+          </p>
+          <div class="pdf-grid">
+            <div class="pdf-card">
+              <h4>L1 - Basics of Programming (annotated)</h4>
+              <object data="L1Basics_of_Programming_with_anno.pdf" type="application/pdf" class="pdf-view">
+                <p>Your browser can't display embedded PDFs. You can download the file instead:
+                  <a href="L1Basics_of_Programming_with_anno.pdf" class="btn" target="_blank" rel="noopener">Open PDF</a>
+                </p>
+              </object>
+              <div class="pdf-actions">
+                <a class="btn" href="L1Basics_of_Programming_with_anno.pdf" target="_blank" rel="noopener">Open</a>
+                <a class="btn" href="L1Basics_of_Programming_with_anno.pdf" download>Download</a>
+              </div>
+            </div>
+
+            <div class="pdf-card">
+              <h4>L2 - Basics of Programming (annotated)</h4>
+              <object data="L2Basics_of_Programming_with_anno.pdf" type="application/pdf" class="pdf-view">
+                <p>Your browser can't display embedded PDFs. You can download the file instead:
+                  <a href="L2Basics_of_Programming_with_anno.pdf" class="btn" target="_blank" rel="noopener">Open PDF</a>
+                </p>
+              </object>
+              <div class="pdf-actions">
+                <a class="btn" href="L2Basics_of_Programming_with_anno.pdf" target="_blank" rel="noopener">Open</a>
+                <a class="btn" href="L2Basics_of_Programming_with_anno.pdf" download>Download</a>
+              </div>
+            </div>
+
+            <div class="pdf-card">
+              <h4>L3 - Basics of Programming (annotated)</h4>
+              <object data="L3Basics_of_Programming_with_anno.pdf" type="application/pdf" class="pdf-view">
+                <p>Your browser can't display embedded PDFs. You can download the file instead:
+                  <a href="L3Basics_of_Programming_with_anno.pdf" class="btn" target="_blank" rel="noopener">Open PDF</a>
+                </p>
+              </object>
+              <div class="pdf-actions">
+                <a class="btn" href="L3Basics_of_Programming_with_anno.pdf" target="_blank" rel="noopener">Open</a>
+                <a class="btn" href="L3Basics_of_Programming_with_anno.pdf" download>Download</a>
+              </div>
+            </div>
+
+            <div class="pdf-card">
+              <h4>DC - Basics of Programming</h4>
+              <object data="DC-Basics%20of%20Programming%20.pdf" type="application/pdf" class="pdf-view">
+                <p>Your browser can't display embedded PDFs. You can download the file instead:
+                  <a href="DC-Basics%20of%20Programming%20.pdf" class="btn" target="_blank" rel="noopener">Open PDF</a>
+                </p>
+              </object>
+              <div class="pdf-actions">
+                <a class="btn" href="DC-Basics%20of%20Programming%20.pdf" target="_blank" rel="noopener">Open</a>
+                <a class="btn" href="DC-Basics%20of%20Programming%20.pdf" download>Download</a>
+              </div>
+            </div>
+
+            <div class="pdf-card">
+              <h4>MS - Basics of Programming</h4>
+              <object data="MS-Basics%20of%20Programming.pdf" type="application/pdf" class="pdf-view">
+                <p>Your browser can't display embedded PDFs. You can download the file instead:
+                  <a href="MS-Basics%20of%20Programming.pdf" class="btn" target="_blank" rel="noopener">Open PDF</a>
+                </p>
+              </object>
+              <div class="pdf-actions">
+                <a class="btn" href="MS-Basics%20of%20Programming.pdf" target="_blank" rel="noopener">Open</a>
+                <a class="btn" href="MS-Basics%20of%20Programming.pdf" download>Download</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article id="s2-patterns" class="card topic" data-title="Pattern Printing - Overview" data-difficulty="Beginner">
+          <div class="header">
+            <h2>Pattern Printing - Overview</h2>
+            <span class="badge">Beginner</span>
+            <div class="favorite" role="button" aria-label="Bookmark" title="Bookmark">❤</div>
+          </div>
+          <p class="muted">Content coming soon.</p>
+        </article>
+
+        <article id="s4-search-sort" class="card topic" data-title="Searching & Sorting - Overview" data-difficulty="Beginner">
+          <div class="header">
+            <h2>Searching & Sorting - Overview</h2>
+            <span class="badge">Beginner</span>
+            <div class="favorite" role="button" aria-label="Bookmark" title="Bookmark">❤</div>
+          </div>
+          <p class="muted">Content coming soon.</p>
+        </article>
+
+        <article id="s5-strings" class="card topic" data-title="Strings - Overview" data-difficulty="Beginner">
+          <div class="header">
+            <h2>Strings - Overview</h2>
+            <span class="badge">Beginner</span>
+            <div class="favorite" role="button" aria-label="Bookmark" title="Bookmark">❤</div>
+          </div>
+          <p class="muted">Content coming soon.</p>
+        </article>
+
+        <article id="s6-maths-pointers" class="card topic" data-title="Needed Maths & Pointers - Overview" data-difficulty="Beginner">
+          <div class="header">
+            <h2>Needed Maths & Pointers - Overview</h2>
+            <span class="badge">Beginner</span>
+            <div class="favorite" role="button" aria-label="Bookmark" title="Bookmark">❤</div>
+          </div>
+          <p class="muted">Content coming soon.</p>
+        </article>
+      </main>
+    </div>
+
+    <section id="about" class="hero" aria-label="About">
+      <h2>About</h2>
+      <p>
+        This site is inspired by W3Schools and GeeksforGeeks, built as a free resource to help you learn DSA.
+        It includes flowcharts, code examples, and practice problems, with a focus on clarity and practicality.
+      </p>
+    </section>
+
+    <section id="youtube" class="hero" aria-label="YouTube">
+      <h2>YouTube Channel</h2>
+      <p>Follow the channel <strong>@abhijayshah74</strong> (Abhijay Shah). Playlist: "Revise the Redesigned DSA-Codehelp-RED-SUPREME_4.0"</p>
+      <div class="controls">
+        <a class="btn primary" href="https://www.youtube.com/@abhijayshah74" target="_blank" rel="noopener">Visit Channel</a>
+      </div>
+    </section>
+
+    <section id="license" class="hero" aria-label="License">
+      <h2>License</h2>
+      <p class="license">© 2025 Abhijay Shah - All Rights Reserved</p>
+      <div class="controls">
+        <a class="btn" href="LICENSE" target="_blank" rel="noopener">View License File</a>
+        <a class="btn" href="CONTRIBUTING.md" target="_blank" rel="noopener">Contributing Guide</a>
+        <a class="btn" href="CODE_OF_CONDUCT.md" target="_blank" rel="noopener">Code of Conduct</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <div>
+          <span class="license">© 2025 Abhijay Shah</span>
+          · <a href="https://github.com/Abhijayshah/DSA-Codehelp-RED-SUPREME_4.0" target="_blank" rel="noopener">GitHub Repository</a>
+          · <a href="https://www.youtube.com/@abhijayshah74" target="_blank" rel="noopener">YouTube</a>
+        </div>
+        <div>
+          <a class="btn" href="https://github.com/Abhijayshah/DSA-Codehelp-RED-SUPREME_4.0" target="_blank" rel="noopener">⭐ Star on GitHub</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scroll for nav links
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+          const id = a.getAttribute('href').slice(1);
+          const el = document.getElementById(id);
+          if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+        });
+      });
+
+      // Theme toggle
+      const themeToggle = document.getElementById('themeToggle');
+      const root = document.documentElement;
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) root.setAttribute('data-theme', savedTheme);
+      themeToggle.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+
+      // Search filter
+      const search = document.getElementById('search');
+      const topics = Array.from(document.querySelectorAll('.topic'));
+      // Initialize topics count
+      document.getElementById('topicsCount').textContent = topics.length;
+      search.addEventListener('input', () => {
+        const q = search.value.toLowerCase();
+        let visible = 0;
+        topics.forEach(card => {
+          const title = card.dataset.title.toLowerCase();
+          const diff = card.dataset.difficulty.toLowerCase();
+          const match = title.includes(q) || diff.includes(q);
+          card.style.display = match ? '' : 'none';
+          if (match) visible++;
+        });
+        document.getElementById('topicsCount').textContent = visible;
+      });
+
+      // Bookmark/favorites
+      document.querySelectorAll('.favorite').forEach(f => {
+        const key = 'fav-' + f.closest('.topic').id;
+        if (localStorage.getItem(key) === '1') f.classList.add('active');
+        f.addEventListener('click', () => {
+          f.classList.toggle('active');
+          localStorage.setItem(key, f.classList.contains('active') ? '1' : '0');
+        });
+      });
+
+      // Progress tracker
+      const progressBar = document.getElementById('progressBar');
+      const topicsKeys = ['topic-arrays-intro'];
+      const updateProgress = () => {
+        const completed = topicsKeys.filter(k => localStorage.getItem('complete-' + k) === '1').length;
+        const pct = Math.round((completed / topicsKeys.length) * 100);
+        progressBar.style.width = pct + '%';
+      };
+      updateProgress();
+      document.getElementById('markComplete-arrays').addEventListener('click', () => {
+        localStorage.setItem('complete-topic-arrays-intro', '1');
+        updateProgress();
+      });
+
+      // Copy buttons
+      document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const lang = btn.dataset.target;
+          const codeEl = btn.previousElementSibling.querySelector('code');
+          navigator.clipboard.writeText(codeEl.textContent).then(() => {
+            btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy ' + (lang === 'cpp' ? 'C++' : lang.charAt(0).toUpperCase() + lang.slice(1)), 1200);
+          });
+        });
+      });
+
+      // Last updated timestamp
+      document.getElementById('updated-arrays').textContent = new Date().toLocaleString();
+    </script>
+  </body>
+</html>
