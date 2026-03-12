@@ -1,0 +1,619 @@
+
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; }
+.container { padding: 16px 0; font-family: var(--font-sans); color: var(--color-text-primary); }
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+.tab { padding: 6px 14px; border-radius: 20px; border: 1px solid var(--color-border-secondary); background: var(--color-background-secondary); font-size: 12px; cursor: pointer; color: var(--color-text-secondary); transition: all .15s; white-space: nowrap; }
+.tab.active { background: var(--color-text-primary); color: var(--color-background-primary); border-color: transparent; }
+.section { display: none; }
+.section.active { display: block; }
+.section-title { font-size: 15px; font-weight: 500; margin-bottom: 12px; color: var(--color-text-primary); border-left: 3px solid; padding-left: 10px; }
+.subsection { margin-bottom: 18px; }
+.sub-title { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+.qlist { list-style: none; margin: 0; padding: 0; }
+.qlist li { font-size: 13px; padding: 5px 0 5px 14px; border-bottom: 1px solid var(--color-border-tertiary); color: var(--color-text-secondary); position: relative; line-height: 1.5; }
+.qlist li:last-child { border-bottom: none; }
+.qlist li::before { content: "—"; position: absolute; left: 0; color: var(--color-text-tertiary); }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 520px) { .grid2 { grid-template-columns: 1fr; } }
+.card { background: var(--color-background-secondary); border-radius: 10px; padding: 14px; border: 1px solid var(--color-border-tertiary); }
+</style>
+
+<div class="container">
+<div class="tabs" id="tabs">
+  <div class="tab active" onclick="show('dsa')">DSA & Coding</div>
+  <div class="tab" onclick="show('oops')">OOPs</div>
+  <div class="tab" onclick="show('dbms')">DBMS & SQL</div>
+  <div class="tab" onclick="show('domain')">Domain-wise</div>
+  <div class="tab" onclick="show('resume')">Resume-based</div>
+  <div class="tab" onclick="show('hr')">HR & Managerial</div>
+  <div class="tab" onclick="show('cs')">CS Fundamentals</div>
+  <div class="tab" onclick="show('misc')">TCS-specific</div>
+</div>
+
+<!-- DSA & CODING -->
+<div class="section active" id="sec-dsa">
+<div class="section-title" style="border-color:#534AB7">DSA & Coding questions</div>
+<div class="grid2">
+<div class="card">
+  <div class="sub-title">Arrays & Strings</div>
+  <ul class="qlist">
+    <li>Find duplicates in an array</li>
+    <li>Rotate array by k places</li>
+    <li>Count of top 2 highest occurring characters in a string</li>
+    <li>Remove vowels from your full name</li>
+    <li>Segregate negative and positive numbers from an array</li>
+    <li>Add 2 numbers without using a 3rd variable</li>
+    <li>Swap two numbers without using a 3rd variable</li>
+    <li>Check if a string is in binary form</li>
+    <li>Find the most occurring element in an array</li>
+    <li>Reverse a string</li>
+    <li>Store values without using an array</li>
+    <li>Print strings containing "esh" from a list</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">Numbers & Math</div>
+  <ul class="qlist">
+    <li>Armstrong number check</li>
+    <li>Fibonacci sequence</li>
+    <li>Factorial of a number</li>
+    <li>Prime number check / print primes up to N</li>
+    <li>Check if a number is a perfect square</li>
+    <li>LCM of 2 numbers</li>
+    <li>Find all factors of a number</li>
+    <li>Check if a number is positive or negative</li>
+    <li>One-swap palindrome check</li>
+    <li>Count even numbers from 0 to N</li>
+    <li>x^y + y^x = 219/1296 — find x and y (aptitude)</li>
+    <li>5 machines make 5 pencils in 5 min — 100 machines/100 pencils?</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">Patterns</div>
+  <ul class="qlist">
+    <li>Print * pyramid</li>
+    <li>Inverted pyramid (n=3 → * * * / * * / *)</li>
+    <li>Pattern using single for loop only</li>
+    <li>Various pattern questions (general)</li>
+    <li>Flowchart of Fibonacci series</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">Data Structures</div>
+  <ul class="qlist">
+    <li>Doubly linked list — create and delete a node</li>
+    <li>Delete circular linked list's first element</li>
+    <li>Delete a random node from a linked list</li>
+    <li>Stack-based DSA question</li>
+    <li>Binary search (code + explain)</li>
+    <li>Quick sort (explain)</li>
+    <li>Tower of Hanoi (approach + code)</li>
+    <li>Transpose of a matrix</li>
+    <li>Hashmap-based coding question</li>
+    <li>HashMap — count occurrences</li>
+    <li>Tree traversal (Python)</li>
+    <li>Optimised two-sum</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">Python-specific</div>
+  <ul class="qlist">
+    <li>Convert 3 lists into tuple, list, dictionary (simple + conditional)</li>
+    <li>Create a dictionary and swap elements</li>
+    <li>Lambda expressions</li>
+    <li>/ vs // in Python</li>
+    <li>File handling in Python</li>
+    <li>Pandas — manage NULL values in a dataframe</li>
+    <li>Find min, max, sum from a column in a CSV file</li>
+    <li>Numpy usage in projects</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">Bitwise / XOR</div>
+  <ul class="qlist">
+    <li>All bitwise operators with truth tables</li>
+    <li>XOR-based coding question</li>
+    <li>Forward shift of a number</li>
+    <li>Output of binary operations</li>
+  </ul>
+</div>
+</div>
+</div>
+
+<!-- OOPS -->
+<div class="section" id="sec-oops">
+<div class="section-title" style="border-color:#0F6E56">OOPs questions</div>
+<div class="grid2">
+<div class="card">
+  <div class="sub-title">Core concepts</div>
+  <ul class="qlist">
+    <li>What is OOPs? Define all 4 pillars</li>
+    <li>Explain Encapsulation with example</li>
+    <li>Explain Abstraction — real-life example (car brakes)</li>
+    <li>Explain Polymorphism with code</li>
+    <li>Explain Inheritance and its types</li>
+    <li>If you don't want to inherit — what approach to use?</li>
+    <li>Explain all OOPs with a car example</li>
+    <li>How to define a bottle — object or class?</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">Java-specific OOPs</div>
+  <ul class="qlist">
+    <li>Is Java fully OOP? Why / why not?</li>
+    <li>Types of constructors</li>
+    <li>Access modifiers (public, private, protected)</li>
+    <li>Static keyword in Java</li>
+    <li>What is an interface in Java?</li>
+    <li>Abstract class vs interface</li>
+    <li>Accessing private abstract method in subclass</li>
+    <li>Method overloading vs overriding (compile time vs runtime)</li>
+    <li>Why are strings immutable in Java?</li>
+    <li>How are strings stored in Java?</li>
+    <li>Difference between Java and C++ OOPs</li>
+    <li>Difference between Java, C++, Python</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">C++ specific</div>
+  <ul class="qlist">
+    <li>Pointers — what, why not in other languages</li>
+    <li>Null pointer, dangling pointer</li>
+    <li>Memory leak in C++ — how to avoid it</li>
+    <li>Struct vs class</li>
+    <li>Exception handling in C++</li>
+    <li>Call by value vs call by reference (with code)</li>
+    <li>Pass by reference vs pass by value</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">General OOPs coding</div>
+  <ul class="qlist">
+    <li>Code demonstrating runtime and compile-time polymorphism</li>
+    <li>Create a class with constructor</li>
+    <li>Write a program demonstrating polymorphism</li>
+    <li>Code for sorting and swapping elements</li>
+    <li>What does static mean? (context: OS, Java, C++)</li>
+    <li>Object-oriented vs procedural language</li>
+  </ul>
+</div>
+</div>
+</div>
+
+<!-- DBMS & SQL -->
+<div class="section" id="sec-dbms">
+<div class="section-title" style="border-color:#993C1D">DBMS & SQL questions</div>
+<div class="grid2">
+<div class="card">
+  <div class="sub-title">DBMS concepts</div>
+  <ul class="qlist">
+    <li>DBMS vs RDBMS</li>
+    <li>SQL vs NoSQL — when to use which</li>
+    <li>What is normalization and its types (1NF, 2NF, 4NF, BCNF)?</li>
+    <li>What are Views? What are Stored Procedures?</li>
+    <li>What is indexing in SQL?</li>
+    <li>Types of Keys — Primary, Foreign, Unique, Composite</li>
+    <li>What is a foreign key? How does it maintain data integrity?</li>
+    <li>Redundancy anomaly — how to address it?</li>
+    <li>Difference between DELETE and TRUNCATE</li>
+    <li>DDL vs DML commands</li>
+    <li>DELETE vs ALTER command</li>
+    <li>MySQL vs SQL</li>
+    <li>What is SQL injection? How to prevent it?</li>
+    <li>What are aggregate functions?</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">SQL Queries (asked to write)</div>
+  <ul class="qlist">
+    <li>Second highest salary (without OFFSET/LIMIT)</li>
+    <li>Top 10 employees with highest salary, name starting with 'A'</li>
+    <li>Find MAX value in a table</li>
+    <li>Join two tables — get employees belonging to city Bhopal in HR dept</li>
+    <li>Find DOB of employees (JOIN)</li>
+    <li>Employees with DOB before 1 Jan 2001</li>
+    <li>Students starting with 'A' from Computer Science dept (JOIN)</li>
+    <li>Delete duplicate rows</li>
+    <li>Get unique rows from a table</li>
+    <li>Merge two columns of a table</li>
+    <li>GROUP BY with HAVING clause</li>
+    <li>Sum of amounts where names are the same</li>
+    <li>SQL LIKE operator usage</li>
+    <li>Print name + birth from employee table</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">Joins (conceptual)</div>
+  <ul class="qlist">
+    <li>Types of joins (INNER, LEFT, RIGHT, FULL, CROSS)</li>
+    <li>Explain INNER JOIN with example + output (given table data)</li>
+    <li>ROLLBACK with JOIN question</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">MongoDB / NoSQL</div>
+  <ul class="qlist">
+    <li>Why MongoDB? Why not SQL?</li>
+    <li>MongoDB vs MySQL differences</li>
+    <li>MongoDB queries (project-based)</li>
+    <li>When to use NoSQL vs SQL (scenario-based)</li>
+    <li>Difference between MySQL and other DBs you know</li>
+    <li>Redis — what is it, how does it work?</li>
+    <li>Can Redis be implemented as a distributed system?</li>
+  </ul>
+</div>
+</div>
+</div>
+
+<!-- DOMAIN-WISE -->
+<div class="section" id="sec-domain">
+<div class="section-title" style="border-color:#185FA5">Domain-wise questions</div>
+<div class="grid2">
+<div class="card">
+  <div class="sub-title">AI / ML / Data Science</div>
+  <ul class="qlist">
+    <li>Types of AI / Machine Learning models</li>
+    <li>What is ML? Supervised vs Unsupervised vs Reinforcement</li>
+    <li>What is a Neural Network? Types (RNN, CNN, GAN)</li>
+    <li>Development cycle of an ML model</li>
+    <li>How do you deploy a model? CI/CD</li>
+    <li>Gradient descent — explain it</li>
+    <li>Python data science libraries (preprocessing to model implementation)</li>
+    <li>What is Generative AI? What are LLMs?</li>
+    <li>Real-world examples of Generative AI</li>
+    <li>Explain ChatGPT architecture and working</li>
+    <li>What is prompt engineering?</li>
+    <li>Pandas — data visualization libraries</li>
+    <li>Why Python for ML? Advantages</li>
+    <li>What languages are used in AI models?</li>
+    <li>ML algorithms used in your project (explained)</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">Cloud (AWS / Azure)</div>
+  <ul class="qlist">
+    <li>AWS services — full forms and use cases</li>
+    <li>What is EC2? What is VPC?</li>
+    <li>What is S3?</li>
+    <li>Zone vs Region in cloud</li>
+    <li>Cloud computing types (public, private, hybrid)</li>
+    <li>Benefits of cloud over on-premise servers</li>
+    <li>On-premise vs cloud-based servers</li>
+    <li>After having AWS certification — how will you contribute to a team?</li>
+    <li>Why Azure? Microsoft security and compliance certification questions</li>
+    <li>What is garbage collection and pointers?</li>
+    <li>What is VPN Technology and its use in cybersecurity?</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">MERN Stack / Web Dev</div>
+  <ul class="qlist">
+    <li>JavaScript: var, let, const — explain and differences</li>
+    <li>Difference between JavaScript and Java</li>
+    <li>Why and how did you use ReactJS?</li>
+    <li>Why MERN stack and not another tech stack?</li>
+    <li>Why Node.js over other technologies?</li>
+    <li>Difference between Express and Node.js</li>
+    <li>Event loop working in Node.js</li>
+    <li>Exception handling in JavaScript</li>
+    <li>How to connect different servers in JavaScript?</li>
+    <li>How do websites work?</li>
+    <li>How to connect MySQL to your website?</li>
+    <li>REST API — what is it?</li>
+    <li>Web application vs web infrastructure</li>
+    <li>Handle 10x user spike (scale architecture)</li>
+    <li>How to make a website more secure?</li>
+    <li>HTML/CSS/JS — write a login page with email validation (JS)</li>
+    <li>HTML form for voter ID application with age validation (JS)</li>
+    <li>HTML form with required fields</li>
+    <li>Write a static webpage in HTML</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">Cybersecurity</div>
+  <ul class="qlist">
+    <li>OWASP Top 10 vulnerabilities — explain any 3</li>
+    <li>What is a Man-in-the-Middle attack?</li>
+    <li>What is Social Engineering?</li>
+    <li>How to detect a malicious email?</li>
+    <li>Metasploit usage in Kali Linux (step by step)</li>
+    <li>What is Wireshark and how was it used in your project?</li>
+    <li>What is Ransomware? How to protect against it?</li>
+    <li>What is Two-Factor Authentication?</li>
+    <li>Security aspects of Facebook</li>
+    <li>SSL — what is it? HTTP vs HTTPS</li>
+    <li>Tasks and responsibilities of cybersecurity employees</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">DevOps / General Backend</div>
+  <ul class="qlist">
+    <li>Docker — what is it and usage</li>
+    <li>Kubernetes basics</li>
+    <li>CI/CD pipeline</li>
+    <li>What is GitHub?</li>
+    <li>SDLC phases — explain</li>
+    <li>Agile methodology — why use it?</li>
+    <li>What is serialization in Java?</li>
+    <li>JVM vs JDK</li>
+    <li>Java program execution flow</li>
+    <li>Multithreading in Java — how is it achieved?</li>
+    <li>Asynchronous Java</li>
+    <li>JDBC — explain</li>
+    <li>Spring vs other backend frameworks — why Spring?</li>
+    <li>Advantages of Java</li>
+    <li>Explain JVM, JRE</li>
+    <li>While vs do-while loop</li>
+    <li>Exception handling</li>
+    <li>Interpolation search</li>
+    <li>Binary search tree</li>
+        <li>Shortest path algorithm (Dijkstra etc.)</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">iOS / React Native / Mobile</div>
+  <ul class="qlist">
+    <li>Why this tech stack for your mobile project?</li>
+    <li>NLP usage in your project — explain</li>
+    <li>Applications of your tech stack in different scenarios</li>
+    <li>Use of project in real life?</li>
+  </ul>
+</div>
+</div>
+</div>
+
+<!-- RESUME-BASED -->
+<div class="section" id="sec-resume">
+<div class="section-title" style="border-color:#3B6D11">Resume-based questions</div>
+<div class="grid2">
+<div class="card">
+  <div class="sub-title">Projects</div>
+  <ul class="qlist">
+    <li>Explain your project in detail</li>
+    <li>What is the architecture of your project?</li>
+    <li>Full development cycle of your project</li>
+    <li>What technologies did you use and why?</li>
+    <li>Is your project deployed? Show the live link</li>
+    <li>How is your project different from others in the market?</li>
+    <li>What are the unique features of your project?</li>
+    <li>What conclusions did you draw from the project?</li>
+    <li>How is your project beneficial for users?</li>
+    <li>Optimization techniques used in your project</li>
+    <li>What were challenges / issues you faced?</li>
+    <li>Group project — what was your role?</li>
+    <li>Use of the project in real life?</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">Skills & certifications</div>
+  <ul class="qlist">
+    <li>Questions on every skill listed in resume</li>
+    <li>What did you learn in your certification?</li>
+    <li>What graded assessments did you do in certification?</li>
+    <li>After getting this certification, how can you contribute to a team?</li>
+    <li>Why did you do this certification?</li>
+    <li>Are you comfortable in a different tech stack?</li>
+    <li>What language do you prefer and why?</li>
+    <li>Rate yourself on your skills (out of 10)</li>
+    <li>Why did you choose CSE?</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">Internship / experience</div>
+  <ul class="qlist">
+    <li>What did you do in your internship?</li>
+    <li>Tell me about your current company</li>
+    <li>Why do you want to leave KPIT to join TCS?</li>
+    <li>Hackathon / hackquest questions — explain what you built</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">Hobbies (resume-mentioned)</div>
+  <ul class="qlist">
+    <li>What recent book did you read? How did it change your life?</li>
+    <li>Swimming stroke types (if swimming is on resume)</li>
+    <li>Who has the most Olympic medals in swimming?</li>
+    <li>Measurements of a swimming pool</li>
+    <li>Meaning of your name</li>
+  </ul>
+</div>
+</div>
+</div>
+
+<!-- HR & MANAGERIAL -->
+<div class="section" id="sec-hr">
+<div class="section-title" style="border-color:#D85A30">HR & Managerial questions</div>
+<div class="grid2">
+<div class="card">
+  <div class="sub-title">Standard HR</div>
+  <ul class="qlist">
+    <li>Tell me about yourself / introduce yourself</li>
+    <li>What are your strengths and weaknesses?</li>
+    <li>Where do you see yourself in 5 / 10 years?</li>
+    <li>Why TCS? Why TCS over other companies?</li>
+    <li>What do you know about TCS?</li>
+    <li>What do you expect from TCS?</li>
+    <li>What will you achieve at TCS after joining?</li>
+    <li>What if you are not selected by TCS?</li>
+    <li>Will you accept a Ninja role if not Digital?</li>
+    <li>Are you planning higher studies after getting the job?</li>
+    <li>What unique abilities do you have?</li>
+    <li>What is your goal in life?</li>
+    <li>What do you know about latest technologies?</li>
+    <li>How do you keep yourself updated with technology?</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">Location & availability</div>
+  <ul class="qlist">
+    <li>Are you willing to relocate?</li>
+    <li>Any city preference?</li>
+    <li>Comfortable working in different shifts / night shifts?</li>
+    <li>Available to work 10 hrs a day?</li>
+    <li>After a few months, will you ask for a location change?</li>
+    <li>Open to working PAN India?</li>
+    <li>If posted to a remote location (Kochi, Guwahati) — any issue?</li>
+    <li>What if assigned to a different state / North India?</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">Situational / conflict handling</div>
+  <ul class="qlist">
+    <li>Team leader situation — only you were appreciated, not your team. What would you do?</li>
+    <li>Two team members in conflict — how do you handle it?</li>
+    <li>A team member made a major mistake that jeopardised team promotion — your response?</li>
+    <li>Manager asks you to hide a critical bug before client delivery — what do you do?</li>
+    <li>You have a conflict with your best friend who is also your manager — what do you do?</li>
+    <li>How do you handle unresolvable conflict with a team member?</li>
+    <li>Describe a stressful situation you overcame</li>
+    <li>Handling conflict at workplace</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">Managerial / analytical puzzles</div>
+  <ul class="qlist">
+    <li>4L and 5L jug — make exactly 7L (puzzle)</li>
+    <li>2 puzzles (general logical reasoning)</li>
+    <li>Startup: how would you attract customers to your product?</li>
+    <li>Tier 1 company with low package vs startup with high package — which would you choose?</li>
+    <li>If you had unlimited money and resources — how would you eliminate plastic (including microplastic)?</li>
+    <li>One asteroid will hit Earth in 5 years — what technology would you use to prevent it?</li>
+    <li>How would you eliminate poverty in a given scenario?</li>
+    <li>Why can't you see when you are blind?</li>
+    <li>Design 3 test cases for a login window</li>
+    <li>How is Amazon's site prevented from crashing during a 10x user surge?</li>
+    <li>Explain the difference between a manager and a leader</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">Family & background</div>
+  <ul class="qlist">
+    <li>Tell us about your family background</li>
+    <li>What does your father/mother do?</li>
+    <li>How many members in your family?</li>
+    <li>Why did you choose VIT Bhopal?</li>
+    <li>What is your hometown famous for?</li>
+    <li>Who is the MP of your constituency?</li>
+    <li>Who is the CM and Deputy CM of your state?</li>
+    <li>Did you eat? (casual icebreaker)</li>
+    <li>How is life going?</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">TCS-specific knowledge</div>
+  <ul class="qlist">
+    <li>Market cap of TCS</li>
+    <li>How many offices does TCS have worldwide?</li>
+    <li>Does TCS have an office in Bhopal?</li>
+    <li>Who founded TCS and when?</li>
+    <li>TCS new technology and initiatives</li>
+    <li>What are rotational shifts?</li>
+    <li>TCS eligibility criteria — do you know it?</li>
+    <li>What is CSR (Corporate Social Responsibility)?</li>
+    <li>How do you see personal growth in a CSR role?</li>
+    <li>Your views on Ratan Tata</li>
+    <li>What is the full form of CGPA?</li>
+  </ul>
+</div>
+</div>
+</div>
+
+<!-- CS FUNDAMENTALS -->
+<div class="section" id="sec-cs">
+<div class="section-title" style="border-color:#854F0B">CS Fundamentals</div>
+<div class="grid2">
+<div class="card">
+  <div class="sub-title">OS</div>
+  <ul class="qlist">
+    <li>Deadlock — what is it?</li>
+    <li>Types of OS</li>
+    <li>Two concepts of swapping in OS — how does swapping help memory management?</li>
+    <li>Stack vs Heap memory</li>
+    <li>What is multithreading?</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">Networking</div>
+  <ul class="qlist">
+    <li>Computer networking basics</li>
+    <li>Network topologies</li>
+    <li>TCP vs UDP</li>
+    <li>HTTP vs HTTPS</li>
+    <li>OSI model layers</li>
+    <li>What is a VPN?</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">General CS</div>
+  <ul class="qlist">
+    <li>Compiler vs Interpreter</li>
+    <li>Difference between set and tuple</li>
+    <li>Properties of a tuple — can we change elements?</li>
+    <li>What is an array?</li>
+    <li>What is an iterator in Python?</li>
+    <li>What are conditional statements?</li>
+    <li>Software Testing basics</li>
+    <li>One-to-many, many-to-many, one-to-one relationships (DB)</li>
+    <li>Explain CSE briefly</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">Security / misc</div>
+  <ul class="qlist">
+    <li>What is SQL injection and how to prevent it?</li>
+    <li>What is Ransomware?</li>
+    <li>Two-factor authentication</li>
+    <li>SSL certificate basics</li>
+    <li>What does static mean?</li>
+    <li>Event loop in Node.js (working)</li>
+    <li>What are pointers — why not used in Java?</li>
+  </ul>
+</div>
+</div>
+</div>
+
+<!-- MISC / TCS-SPECIFIC -->
+<div class="section" id="sec-misc">
+<div class="section-title" style="border-color:#993556">Trending / misc questions</div>
+<div class="grid2">
+<div class="card">
+  <div class="sub-title">Trending tech questions</div>
+  <ul class="qlist">
+    <li>What is Generative AI?</li>
+    <li>What are LLMs?</li>
+    <li>What is ChatGPT and how does it work?</li>
+    <li>What is prompt engineering?</li>
+    <li>What is the difference between ML and AI?</li>
+    <li>Types of ML (supervised, unsupervised, reinforcement)</li>
+    <li>Current trending technology — which one and why?</li>
+    <li>How do you use AI? What precautions to take?</li>
+    <li>Recent news about TCS</li>
+    <li>Latest TCS initiatives in technology</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="sub-title">Critical thinking / creative</div>
+  <ul class="qlist">
+    <li>Asteroid hitting Earth in 5 years — what technology would you use?</li>
+    <li>Unlimited money + resources — how to eliminate plastic pollution?</li>
+    <li>How would you make a product/service stand out in the market?</li>
+    <li>From a user's POV — what should a good software have?</li>
+    <li>What is consistency (follow-up on software quality)?</li>
+    <li>What is the use of Java in connecting UI to hardware?</li>
+  </ul>
+</div>
+</div>
+</div>
+
+</div>
+
+<script>
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('sec-'+id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
